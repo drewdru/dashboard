@@ -28,4 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # Publish to GitHub pages
 
-git subtree push --prefix dist/random-icon origin gh-pages
+git subtree push --prefix dist/dashboard origin gh-pages
