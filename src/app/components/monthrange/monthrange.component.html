@@ -1,0 +1,8 @@
+<mat-form-field [floatLabel]="'always'">
+  <mat-label>Enter a month range</mat-label>
+  <mat-date-range-input [rangePicker]="picker">
+    <input matStartDate placeholder="Start month" readonly [(ngModel)]="startDate" (click)="openDatePicker(picker, 'start')">
+    <input matEndDate placeholder="End month" readonly [(ngModel)]="endDate" (click)="openDatePicker(picker, 'end')">
+  </mat-date-range-input>
+  <mat-date-range-picker #picker startView="year" (monthSelected)="closeDatePicker($event, picker)"></mat-date-range-picker>
+</mat-form-field>

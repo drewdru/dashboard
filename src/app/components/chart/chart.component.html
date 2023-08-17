@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-header>
+    <h1 [innerText]="[title]"></h1>
+  </mat-card-header>
+  <mat-card-actions>
+    <mat-form-field>
+      <mat-label>Chart Type</mat-label>
+      <mat-select [(value)]="type">
+        <mat-option value="bar">Bar</mat-option>
+        <mat-option value="line">Line</mat-option>
+        <mat-option value="scatter">Scatter</mat-option>
+        <mat-option value="bubble">Bubble</mat-option>
+        <mat-option value="pie">Pie</mat-option>
+        <mat-option value="doughnut">Doughnut</mat-option>
+        <mat-option value="polarArea">Polar Area</mat-option>
+        <mat-option value="radar">Radar</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-actions>
+  <mat-card-content>
+    <canvas [id]="id" chartJs [chartType]="type" [chartData]="exampleChartData" [chartOptions]="exampleChartOptions"></canvas>
+  </mat-card-content>
+</mat-card>
+
+
