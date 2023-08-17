@@ -36,8 +36,8 @@
             "scripts": []
           },
           "configurations": {
-            "baseHref": "/dashboard/",
             "production": {
+              "baseHref": "/dashboard/",
               "budgets": [
                 {
                   "type": "initial",

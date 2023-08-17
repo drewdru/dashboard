@@ -1,25 +1,44 @@
 <mat-card>
   <mat-card-header>
-    <h1 [innerText]="[title]"></h1>
+    <h1>{{ title }}</h1>
   </mat-card-header>
-  <mat-card-actions>
-    <mat-form-field>
-      <mat-label>Chart Type</mat-label>
-      <mat-select [(value)]="type">
-        <mat-option value="bar">Bar</mat-option>
-        <mat-option value="line">Line</mat-option>
-        <mat-option value="scatter">Scatter</mat-option>
-        <mat-option value="bubble">Bubble</mat-option>
-        <mat-option value="pie">Pie</mat-option>
-        <mat-option value="doughnut">Doughnut</mat-option>
-        <mat-option value="polarArea">Polar Area</mat-option>
-        <mat-option value="radar">Radar</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </mat-card-actions>
-  <mat-card-content>
-    <canvas [id]="id" chartJs [chartType]="type" [chartData]="exampleChartData" [chartOptions]="exampleChartOptions"></canvas>
-  </mat-card-content>
+
+  <mat-grid-list cols="4">
+    <mat-grid-tile rowspan="2" colspan="1" class="actions-tile">
+      <mat-card-actions class="flex flex-col">
+        <mat-form-field>
+          <mat-label>Chart Type</mat-label>
+          <mat-select [(value)]="type">
+            <mat-option value="bar">Bar</mat-option>
+            <mat-option value="line">Line</mat-option>
+            <mat-option value="scatter">Scatter</mat-option>
+            <mat-option value="bubble">Bubble</mat-option>
+            <mat-option value="pie">Pie</mat-option>
+            <mat-option value="doughnut">Doughnut</mat-option>
+            <mat-option value="polarArea">Polar Area</mat-option>
+            <mat-option value="radar">Radar</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <div *ngFor="let dataset of chartData.datasets; let i=index">
+            <mat-label>{{ dataset.label }}</mat-label>
+            <input
+              matInput
+              type="color"
+              [value]="rgb2Hex(chartData.datasets[i].backgroundColor)"
+              (change)="updateLegendsColor($event, i)"
+            >
+          </div>
+        </mat-form-field>
+      </mat-card-actions>
+    </mat-grid-tile>
+    <mat-grid-tile rowspan="2"  colspan="3">
+      <mat-card-content class="canvas-container">
+        <canvas [id]="id" chartJs [chartType]="type" [chartData]="chartData" [chartOptions]="chartOptions"></canvas>
+      </mat-card-content>
+    </mat-grid-tile>
+  </mat-grid-list>
 </mat-card>
 
 

@@ -30,6 +30,7 @@ export class ChartDirective implements OnInit {
   }
   
   ngOnChanges(changes: any) {
+    console.log(changes);
     this.createChart();
   }
 

@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { FormsModule } from '@angular/forms';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { ChartDirective } from './directives/chart/chart.directive';
 
@@ -49,6 +50,7 @@ import { chartReducer } from './store/chart/chart.reducer';
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatGridListModule,
     ScrollingModule,
     FormsModule,
     MatInputModule,
